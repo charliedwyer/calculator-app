@@ -26,6 +26,8 @@
 
   .display {
     background-color: white;
+    color: black;
+    font-size: 24px;
     height: 75px;
     margin-bottom: 25px;
   }
@@ -35,6 +37,7 @@
     width: 100px;
     background-color: #E0FFFF;
     font-size: 24px;
+    border-radius: 20%;
   }
 
   .row-one, .row-two, .row-three, .row-four {

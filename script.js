@@ -14,9 +14,10 @@ const divide = function (a, b) {
     return a / b;
 }
 
-let numberOne;
-let numberTwo;
-let operator;
+let numberOne = '';
+let numberTwo = '';
+let operator = '';
+let displayVal = '';
 
 const operate = function (numberOne, numberTwo, operator) {
     let result;
@@ -40,3 +41,16 @@ const operate = function (numberOne, numberTwo, operator) {
     };
     return result;
 };
+
+function appendToDisplay(value) {
+    displayVal += value;//adds value to display value
+    document.getElementById('result').value = displayVal;//updates the display
+}
+
+function clearResult() {
+    displayVal = '' //reset display val
+    document.getElementById('result').value = '' //clear display
+    numberOne = ''; //reset variables
+    operator = '';
+    numberTwo = '';
+}
