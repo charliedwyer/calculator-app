@@ -1,5 +1,5 @@
 const add = function (a, b) {
-    return a + b;
+    return parseFloat(a) + parseFloat(b);
 };
 
 const subtract = function (a, b) {
@@ -19,21 +19,21 @@ let numberTwo = '';
 let operator = '';
 let displayVal = '';
 
-const operate = function (numberOne, numberTwo, operator) {
+const operate = function (numOne, numTwo, op) {
     let result;
 
-    switch (operator) {
+    switch (op) {
         case '+':
-            result = add(numberOne, numberTwo);
+            result = add(numOne, numTwo);
             break;
         case '-':
-            result = subtract(numberOne, numberTwo);
+            result = subtract(numOne, numTwo);
             break;
         case '*':
-            result = multiply(numberOne, numberTwo);
+            result = multiply(numOne, numTwo);
             break;
         case '/':
-            result = divide(numberOne, numberTwo);
+            result = divide(numOne, numTwo);
             break;
         default:
             console.log("Invalid Input");
@@ -42,10 +42,24 @@ const operate = function (numberOne, numberTwo, operator) {
     return result;
 };
 
+function getResult() {
+    let ans;
+    numberTwo = displayVal;
+    console.log(numberTwo);
+
+    ans = operate(numberOne, numberTwo, operator);
+
+    displayVal = ans.toString();
+    document.getElementById('result').value = displayVal;
+    numberOne = '';
+    operator = '';
+
+}
+
 function appendToDisplay(value) {
     displayVal += value;//adds value to display value
     document.getElementById('result').value = displayVal;//updates the display
-}
+};
 
 function clearResult() {
     displayVal = '' //reset display val
@@ -53,4 +67,11 @@ function clearResult() {
     numberOne = ''; //reset variables
     operator = '';
     numberTwo = '';
-}
+};
+
+function getOperator(selectedOperator) {
+    numberOne = displayVal;
+    operator = selectedOperator;
+    displayVal = '';
+};
+
