@@ -1,0 +1,50 @@
+*{
+    background-color: #00CED1;
+    font-family: monospace;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    color: white;
+    border-radius: 5%;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .container, .row-one, .row-two, .row-three,
+  .row-four, .row-five, h2 {
+    background-color: #B9D9EB;
+  }
+
+  .display {
+    background-color: white;
+    height: 75px;
+    margin-bottom: 25px;
+  }
+
+  input[type="button"] {
+    height: 75px;
+    width: 100px;
+    background-color: #E0FFFF;
+    font-size: 24px;
+  }
+
+  .row-one, .row-two, .row-three, .row-four {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+  }
+
+  .row-five {
+    display: flex;
+    margin: 5px;
+    margin-left: 20px;
+  }
