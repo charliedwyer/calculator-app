@@ -11,6 +11,10 @@ const multiply = function (a, b) {
 };
 
 const divide = function (a, b) {
+    if (b == 0) {
+        document.getElementById('result').value = "ERROR CAN'T DIVIDE BY 0";
+        return;
+    }
     return a / b;
 }
 
@@ -18,6 +22,19 @@ let numberOne = '';
 let numberTwo = '';
 let operator = '';
 let displayVal = '';
+let answer = '';
+
+function getOperator(selectedOperator) {
+    if (operator != '') {
+        getResult();
+        numberOne = answer;
+        numberTwo = '';
+    } else {
+        numberOne = displayVal;
+    }
+    operator = selectedOperator;
+    displayVal = '';
+};
 
 const operate = function (numOne, numTwo, op) {
     let result;
@@ -43,17 +60,15 @@ const operate = function (numOne, numTwo, op) {
 };
 
 function getResult() {
-    let ans;
+    
     numberTwo = displayVal;
-    console.log(numberTwo);
+    console.log(`numberTwo = ${numberTwo}`);
+    console.log(`numberOne = ${numberOne}`);
 
-    ans = operate(numberOne, numberTwo, operator);
+    answer = operate(numberOne, numberTwo, operator);
 
-    displayVal = ans.toString();
+    displayVal = answer.toString();
     document.getElementById('result').value = displayVal;
-    numberOne = '';
-    operator = '';
-
 }
 
 function appendToDisplay(value) {
@@ -66,12 +81,10 @@ function clearResult() {
     document.getElementById('result').value = '' //clear display
     numberOne = ''; //reset variables
     operator = '';
-    numberTwo = '';
+    answer = '';
 };
 
-function getOperator(selectedOperator) {
-    numberOne = displayVal;
-    operator = selectedOperator;
-    displayVal = '';
-};
-
+const equals = document.querySelector('.equal');
+equals.addEventListener('click', function() {
+    operator = '';
+});
