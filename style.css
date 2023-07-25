@@ -36,9 +36,14 @@
   input[type="button"] {
     height: 75px;
     width: 100px;
-    background-color: #E0FFFF;
     font-size: 24px;
+    background-color: #E0FFFF;
     border-radius: 20%;
+  }
+
+  input[type="button"]:hover {
+    transform: scale(1.1);
+    background-color: #00CED1;
   }
 
   .row-one, .row-two, .row-three, .row-four {

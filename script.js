@@ -11,9 +11,9 @@ const multiply = function (a, b) {
 };
 
 const divide = function (a, b) {
-    if (b == 0) {
-        document.getElementById('result').value = "ERROR CAN'T DIVIDE BY 0";
-        return;
+    if (b == 0) { //prevents dividing by 0 to avoid crash
+        return document.getElementById('result').value = "ERROR CAN'T DIVIDE BY 0";
+        
     }
     return a / b;
 }
@@ -24,8 +24,8 @@ let operator = '';
 let displayVal = '';
 let answer = '';
 
-function getOperator(selectedOperator) {
-    if (operator != '') {
+function getOperator(selectedOperator) { //gets the inputted operator
+    if (operator != '') { //checks to see if an operation needs to be preformed before getting next operator
         getResult();
         numberOne = answer;
         numberTwo = '';
@@ -59,7 +59,7 @@ const operate = function (numOne, numTwo, op) {
     return result;
 };
 
-function getResult() {
+function getResult() { //gets the results and displays it on calculator
     
     numberTwo = displayVal;
     console.log(`numberTwo = ${numberTwo}`);
@@ -72,6 +72,9 @@ function getResult() {
 }
 
 function appendToDisplay(value) {
+    if (value === '.' && displayVal.includes('.')) { //only allows one decimal point in a number
+        return;
+    }
     displayVal += value;//adds value to display value
     document.getElementById('result').value = displayVal;//updates the display
 };
@@ -86,5 +89,5 @@ function clearResult() {
 
 const equals = document.querySelector('.equal');
 equals.addEventListener('click', function() {
-    operator = '';
+    operator = ''; // resets the operator once the equal sign is pressed
 });
